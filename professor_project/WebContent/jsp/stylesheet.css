@@ -1,0 +1,219 @@
+.nav {
+    overflow: hidden;
+    background-color: white;
+    width: 100%;
+    font-size: 16px;
+    font-weight:bold;
+
+}
+
+
+.nav ul{
+	list-style-type: none;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	
+	
+}
+
+.nav button{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ff7ac3;
+  font-size: 17px;
+/*   border-color: #ff7ac3; */
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  color: white;
+}
+
+
+label{
+	font-weight: bold;
+	color: coral;
+	font-size: 16px;
+}
+
+.nav li{
+	float: left;
+	color: #ff7ac3;
+	 font-size: 16px;
+    font-weight:bold;
+}
+
+.nav li a{
+	display: block;
+	color: #ff7ac3;
+	text-align: center;
+	padding: 16px 30px 16px;
+	text-decoration: none;
+}
+
+.nav li a:hover{
+	background-color: #ff7ac3;
+	color: white;
+	font-weight: bold;
+	
+}
+
+
+.nav input[type=text] {
+  float: right;
+  padding: 6px;
+  border-color: #ff7ac3;
+  margin-top: 8px;
+  margin-right: 16px;
+  color: coral;
+  font-size: 16px;
+  font-weight:bold;
+}
+
+.search{
+	float:right;
+}
+
+body {
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+
+main {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+}
+
+p{
+	color: #ff7ac3;
+	font-size: 14px;
+	font-weight: bold;
+}
+ 
+ h1{
+ text-align: center;
+ color: coral;
+ font-size: 30px;
+ }
+ 
+
+ 
+ h3{
+	text-align: center;
+}
+
+img{
+	width: 100%;
+}
+
+
+.button {
+  background-color: coral;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: coral;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.description{
+	text-align: center;
+ 	color: coral;
+	 font-size: 20px;
+	  padding: 20px;
+}
+
+.dateanduser{
+ text-align: center;
+ color: black;
+ font-size: 15px;
+  padding: 5px;
+}
+
+.likes{
+ text-align: center;
+ color: red;
+ font-size: 15px;
+  padding: 5px;
+	
+}
+
+.comments{
+ text-align: center;
+ color: #ff7ac3;
+ font-size: 15px;
+	
+}
+
+.tags{
+ text-align: center;
+ color: #ff7ac3;
+ font-size: 14px;
+ font-weight: bold;
+	
+}
+
+#users {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 650px;
+}
+
+#users td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#users tr:nth-child(even){background-color: white;}
+
+#users tr:hover {background-color: coral; color: white}
+
+#users th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #ff7ac3;
+  color: white;
+}
+
+
+.imageFeed{
+	display: block;
+ 	 margin-left: auto;
+ 	 margin-right: auto;
+ 	  height: auto;
+ 	  width: 400px;
+ 	 
+}
+
+
+a.like{
+	color: pink;
+}
+

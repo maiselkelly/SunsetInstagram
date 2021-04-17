@@ -1,0 +1,62 @@
+########## Getting tables to populate ############
+
+1. userDAO -  stray '/'
+
+2. imageDAO - table creation statement not closed ( Missing ')'  )
+
+3. commentDAO:46 All parts of a PRIMARY KEY must be NOT NULL; if you need NULL in a key, use UNIQUE instead. 
+	Found creation statement had "imageid INTEGER DEFAULT NULL" changed to "imageid INTEGER NOT NULL"
+
+4. LikesDAO:62 - Column count doesn't match value count at row 1
+	*Three values listed to be inserted but only two in the VALUES(). Adding an imageid fixed.
+	"INSERT INTO Likes(email, imageid, likedate)" 
+				+ "VALUES('lloyd@wayne.edu', '2020-02-06')," ----> + "VALUES('lloyd@wayne.edu', '4', '2020-02-06'),"
+				
+	
+	
+	
+########## Getting sunsetfeed to populate in sunsetFeed.jsp############
+
+1. 	(in home.jsp)	
+
+	<li><a href="sunsetFeed.jsp">Sunset Feed</a></li>   
+	
+	Directs the user directly to sunsetFeed.jsp without calling the imageFeed() function. By changing it to :
+	
+	<li><a href="imageFeed">Sunset Feed</a></li>
+	
+	The click goes through the servlet which calls the imageFeed() function
+	
+2.  First error after that was in sunsetFeed.jsp - stating that "postdate" did not exist within the images in the list<imagefeed> it received.
+	I figured out that, while we send mysql a string to store the date, dates are stored as a date object. So in imageDAO.imageFeed(), 
+	
+	String postdate = resultSet.getDate("postdate"); returned null
+	
+	but
+	
+	Date postDate = resultSet.getDate("postdate");
+	String postdate = String.valueOf(postDate);
+	
+	works. We can reduce it to Date postDate = resultSet.getDate(String.valueOf(postDate));
+	
+	
+	
+##############Getting new image to save to DB  (postsunset)##########################
+
+1. Had to change request.getParameter("url"); to  request.getParameter("imageURL"); (in ControlServlet)
+	(this is the related line in the .sjp: <input type="text"   name="imageURL" placeholder="Enter Sunset URL" size="45" value="${image.url}" required>     )
+	
+2. timestamp could not be null error. Got time from local machine but format wasn't right for mysql. 
+	Instead of fussing with it, I made timestamp DEFAULT CURRENT_TIMESTAMP in the createTableString in the DAO
+	
+3. Column 'postuser' cannot be null error
+	in ControlServlet, changed:
+	String postuser = request.getParameter("postuser");
+	to:
+	String postuser = String.valueOf(session.getAttribute("currentUser"));
+	
+4. Image now in DB, but result in browser is 404 JSP file [/Home.jsp] not found. 
+	response.sendRedirect("Home.jsp"); should have been "home.jsp" but I changed to "imageFeed"
+	I used "imageFeed" instead of "sunsetFeed.jsp" so the redirect would be routed through the servlet and populate the page with images.
+	
+	
